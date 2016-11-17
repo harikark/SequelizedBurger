@@ -29,19 +29,18 @@ router.post('/burgers/create', function(req, res) {
 	});
 });
 
-// put route to devour a burger
 router.put('/burgers/update', function(req,res){
-	// update one of the burgers
+	// update burgers
 	Customer.create({customer: req.body.customer})
 	.then(function(theCustomer){
 		return Burger.findOne({where:{id: req.body.burger_id}})
-		.then(function(theBurger){
-			return theBurger.setCustomer(theCustomer)
-			.then(function(){
-				return theBurger.updateAttributes({
+	.then(function(theBurger){
+		return theBurger.setCustomer(theCustomer)
+	.then(function(){
+		return theBurger.updateAttributes({
 					devoured: true
-				}).then(function(){
-					return res.redirect('/');
+	}).then(function(){
+		return res.redirect('/');
 				})
 			})
 		})
