@@ -34,5 +34,3 @@ app.listen(PORT, function (){
 	console.log("Listening on " + PORT);
 });
 
-  
-Contact GitHub API Training Shop Blog About
